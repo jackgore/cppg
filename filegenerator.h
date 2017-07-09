@@ -8,6 +8,7 @@ public:
 private:
 	bool fileExists(const std::string& fileName);
 	void printFileExistenceWarning(const std::string& fileName);
+	void generateClass(const std::string& className, std::ostream& out);
 	std::string toLowerCase(const std::string& s);
 	std::string toUpperCase(const std::string& s);
 
@@ -15,5 +16,7 @@ private:
 	const std::string IFNDEF	= "#ifndef";
 	const std::string ENDIF		= "#endif";
 	const std::string DEFINE	= "#define";
+	const std::string INCLUDE	= "#include";
+	const std::string CLASS		= "class";
 };
 #endif
