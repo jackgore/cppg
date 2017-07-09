@@ -9,10 +9,11 @@ private:
 	bool fileExists(const std::string& fileName);
 	void printFileExistenceWarning(const std::string& fileName);
 	std::string toLowerCase(const std::string& s);
+	std::string toUpperCase(const std::string& s);
 
-	const std::string WARNING = "WARNING";
-	const std::string IFNDEF = "#ifndef";
-	const std::string ENDIF = "#endif";
-	const std::string IFNDEF = "#define";
+	const std::string WARNING	= "WARNING";
+	const std::string IFNDEF	= "#ifndef";
+	const std::string ENDIF		= "#endif";
+	const std::string DEFINE	= "#define";
 };
 #endif

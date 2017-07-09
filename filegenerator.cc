@@ -6,14 +6,14 @@ using std::string;
 using std::stringstream;
 
 /**
- * void toLowerCase(string& s) converts s to lowercase
+ * void toUpperCase(string& s) converts s to uppercase
  * and returns that string
  */
-string FileGenerator::toLowerCase(const string& s) {
+string FileGenerator::toUpperCase(const string& s) {
 	stringstream ss;
 	for(int i = 0; i < s.length(); ++i) {
-		if(s[i] >= 'A' && s[i] <= 'Z') {
-			ss << (s[i] - 'A' + 'a');
+		if(s[i] >= 'a' && s[i] <= 'z') {
+			ss << (s[i] - 'a' + 'A');
 		} else {
 			ss << s[i];
 		}
@@ -22,7 +22,7 @@ string FileGenerator::toLowerCase(const string& s) {
 }
 
 /**
- * void toUpperCase(string& s) converts s to uppercase
+ * void toLowerCase(string& s) converts s to lowercase
  * and returns that string
  */
 string FileGenerator::toLowerCase(const string& s) {
