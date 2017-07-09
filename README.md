@@ -3,9 +3,16 @@ cppg generates .cc and .h files for c++
 
 Requires no dependencies. Simppy run `make` to build the project.
 
-Create a file containing a list of classnames and give to cppg for stdin.
+Create a file containing a list of classnames and give to cppg for stdin or pass a file as a command line argument.
 
-Example input file: 
+Example without input file:
+```
+./cpg
+GameObject
+Controller
+```
+
+Example with input file: 
 
 **classnames.in:**
 
@@ -14,9 +21,9 @@ GameObject
 Player
 ```
 
-`./cppg < classnames.in`
+`./cppg -f classnames.in`
 
-For example GameObject files look like this:
+For each example GameObject files look like this:
 
 **gameobject.h**
 ```
