@@ -7,6 +7,15 @@ using std::stringstream;
 using std::ostream;
 
 /**
+ * bool exists(const string& s) consumes a classname and returns 
+ * true if either a .cc or .h file exists
+ */
+bool FileGenerator::exists(const string& className) {
+	string file = toLowerCase(className);	
+	return (fileExists(file + ".h") || fileExists(file + ".cc"));
+}
+
+/**
  * void toUpperCase(string& s) converts s to uppercase
  * and returns that string
  */
@@ -114,3 +123,4 @@ bool FileGenerator::fileExists(const std::string& fileName) {
 	std::ifstream f{fileName.c_str()};
     return f.good();
 }
+

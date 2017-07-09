@@ -9,7 +9,8 @@ public:
 	InputHandler();
 	~InputHandler();
 private:
-	void launchREPL();
+	void launchREPL(std::istream& in);
+	bool getResponse(std::istream& in);
 	FileGenerator *fileGenerator;
 };	
 #endif

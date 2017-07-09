@@ -5,11 +5,12 @@ public:
 	void generate(std::string& name);
 	void generateHeaderFile(const std::string& fileName);
 	void generateImplFile(const std::string& fileName);
+	bool exists(const std::string& className);
+	std::string toLowerCase(const std::string& s);
 private:
 	bool fileExists(const std::string& fileName);
 	void printFileExistenceWarning(const std::string& fileName);
 	void generateClass(const std::string& className, std::ostream& out);
-	std::string toLowerCase(const std::string& s);
 	std::string toUpperCase(const std::string& s);
 
 	const std::string WARNING	= "WARNING";

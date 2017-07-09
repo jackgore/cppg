@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <fstream>
 #include "inputhandler.h"
 #include "configuration.h"
 
@@ -30,17 +31,22 @@ bool cmdOptionExists(char** begin, char** end, const std::string& option) {
 }
 
 int main(int argc, char * argv[]) {
+	InputHandler ih;
     Configuration *configuration = new Configuration();
 	// Check for interactive mode
 	if(cmdOptionExists(argv, argv+argc, "-i") ||
 		cmdOptionExists(argv, argv+argc, "--interactive-mode")) {
         configuration->interactiveMode = true;
     }
-
-    //char * filename = getCmdOption(argv, argv + argc, "-f");
-
-	InputHandler ih;
-	ih.process(std::cin, configuration);
+	
+	// Check if a file is present	
+	if(cmdOptionExists(argv, argv+argc, "-f")) {
+		char* fileName = getCmdOption(argv, argv + argc, "-f");
+		std::ifstream fs{fileName};
+		ih.process(fs, configuration);
+	} else {
+		ih.process(std::cin, configuration);
+	}
 	delete configuration;
     return 0;
 }
