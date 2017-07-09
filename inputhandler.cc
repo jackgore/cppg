@@ -14,14 +14,27 @@ InputHandler::~InputHandler() {
 }
 
 /**
+ * void launchREPL() launches REPL for reading in classnames and
+ * generates files appropriately
+ */
+void InputHandler::launchREPL() {
+
+}
+
+/**
  * void process(istream& in) Reads a line from the inputstream in
  * and passes it along to the generator to have the files generated.
  */
-void InputHandler::process(istream& in) {
+void InputHandler::process(istream& in, Configuration *configuration) {
 	string name;
 	// Read class name from in
-	in >> name;
-	fileGenerator->generate(name);
+	if(configuration->interactiveMode) {
+		launchREPL();
+	} else {
+		while(in >> name) {
+			fileGenerator->generate(name);
+		}
+	}
 
 }
 
